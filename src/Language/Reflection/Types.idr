@@ -382,7 +382,7 @@ getInfo = getInfo'
 ||| of data type specified by name. Fails, if
 ||| the name is not unambiguous, or if the data type
 ||| in question has not exactly one constructor.
-export %macro
+export
 singleCon : Name -> Elab Name
 singleCon n = do
   (MkTypeInfo _ _ _ _ [c]) <- getInfo' n

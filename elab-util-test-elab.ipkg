@@ -1,0 +1,12 @@
+package elab-util-test-elab
+
+authors    = "stefan-hoeck"
+version    = 0.6.0
+readme     = "README.md"
+license    = "BSD-2 Clause"
+
+sourcedir  = "src"
+depends    = prettier
+
+main       = Test.Elab
+executable = elab-util-test-elab

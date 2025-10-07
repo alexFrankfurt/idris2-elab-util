@@ -33,7 +33,7 @@ export
 fromDblDef : Name -> Con n vs -> Decl
 fromDblDef f c =
   let t := `(fromDouble n)
-   in def f [patClause (var f `app` bindVar "n") (injArgs explicit (const t) c)]
+   in def f [patClause (var f `app` bindVar (fromString "n")) (injArgs explicit (const t) c)]
 
 --------------------------------------------------------------------------------
 --          Deriving

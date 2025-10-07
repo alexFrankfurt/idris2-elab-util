@@ -85,7 +85,7 @@ ex10 =
   , IDef
       emptyFC
       "test"
-      [var "test" .$ bindVar "n" .= var "+" .$ var "n" .$ var "n"]
+      [var "test" .$ bindVar (fromString "n") .= var "+" .$ var "n" .$ var "n"]
   ]
 
 ex11 : List Decl
@@ -102,8 +102,7 @@ ex11 =
          [ MkTy
              emptyFC
              (NoFC "A")
-             (    MkArg MW ExplicitArg Nothing (bindVar "t")
-              .-> var "Foo" .$ bindVar "t")
-         , MkTy emptyFC (NoFC "B") (var "Foo" .$ bindVar "t")
-         ])
+(    MkArg MW ExplicitArg Nothing (bindVar (fromString "t"))
+.-> var "Foo" .$ bindVar (fromString "t"))
+, MkTy emptyFC (NoFC "B") (var "Foo" .$ bindVar (fromString "t"))         ])
   ]

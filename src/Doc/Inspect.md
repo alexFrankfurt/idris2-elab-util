@@ -244,7 +244,7 @@ In the REPL, we have to separate lines by using semicolons:
 , IDef
     emptyFC
     "test"
-    [var "test" .$ bindVar "n" .= var "+" .$ var "n" .$ var "n"]
+    [var "test" .$ bindVar (fromString "n") .= var "+" .$ var "n" .$ var "n"]
 ]
 ```
 
@@ -268,10 +268,9 @@ Inspecting quoted data declarations is also possible:
            emptyFC
            emptyFC
            "A"
-           (    MkArg MW ExplicitArg Nothing (bindVar "t")
-            .-> var "Foo" .$ bindVar "t")
-       , MkTy emptyFC emptyFC "B" (var "Foo" .$ bindVar "t")
-       ])
+(    MkArg MW ExplicitArg Nothing (bindVar (fromString "t"))
+.-> var "Foo" .$ bindVar (fromString "t"))
+, MkTy emptyFC emptyFC "B" (var "Foo" .$ bindVar (fromString "t"))       ])
 ]
 ```
 

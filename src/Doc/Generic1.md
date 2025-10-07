@@ -275,10 +275,8 @@ genericDecl ti =
       -- implementation of from and to as anonymous functions
       x       := lambdaArg {a = Name} "x"
       varX    := var "x"
-      from    := lam x $ iCase varX implicitFalse (map fromClause names)
-      to      := lam x $ iCase varX implicitFalse (toClauses names)
-
-   in [ interfaceHint Public function funType
+      from    := lam x $ iCase [] varX implicitFalse (map fromClause names)
+      to      := lam x $ iCase [] varX implicitFalse (toClauses names)   in [ interfaceHint Public function funType
       , def function [patClause (var function) (appAll "MkGeneric" [from,to])]
       ]
 ```

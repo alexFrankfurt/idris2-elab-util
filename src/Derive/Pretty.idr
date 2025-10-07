@@ -108,7 +108,7 @@ derivePretty = do
   let impl :=
         lam (lambdaArg {a = Name} "p") $
         lam (lambdaArg {a = Name} "x") $
-        iCase `(x) implicitFalse (prettyClauses [ti.name] Nothing ti)
+        iCase [] `(x) implicitFalse (prettyClauses [ti.name] Nothing ti)
 
   logTerm "derive.definitions" 1 "pretty implementation" impl
   check $ var "MkPretty" `app` impl

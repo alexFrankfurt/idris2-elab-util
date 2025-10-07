@@ -33,7 +33,7 @@ export
 fromStrDef : Name -> Con n vs -> Decl
 fromStrDef f c =
   let t := `(fromString n)
-   in def f [patClause (var f `app` bindVar "n") (injArgs explicit (const t) c)]
+   in def f [patClause (var f `app` bindVar (fromString "n")) (injArgs explicit (const t) c)]
 
 --------------------------------------------------------------------------------
 --          Deriving

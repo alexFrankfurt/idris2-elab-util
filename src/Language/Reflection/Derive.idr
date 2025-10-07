@@ -550,4 +550,6 @@ mkShowPrec showPrec = MkShow (showPrec Open) showPrec
 ||| for `decEq`
 public export
 mkDecEq : (decEq : (x1 : a) -> (x2 : a) -> Dec (x1 = x2)) -> DecEq a
-mkDecEq = %runElab check (var $ singleCon "DecEq")
+mkDecEq = %runElab do
+  name <- singleCon (UN $ Basic "DecEq")
+  check (var name)

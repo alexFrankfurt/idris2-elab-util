@@ -131,7 +131,7 @@ deriveShow = do
   let impl :=
            lam (lambdaArg {a = Name} "p") $
            lam (lambdaArg {a = Name} "x") $
-           iCase `(x) implicitFalse (showClauses [ti.name] Nothing ti)
+           iCase [] `(x) implicitFalse (showClauses [ti.name] Nothing ti)
 
   logMsg "derive.definitions" 1 $ show impl
   check $ var "mkShowPrec" `app` impl

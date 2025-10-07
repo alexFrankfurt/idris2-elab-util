@@ -167,7 +167,7 @@ deriveEq = do
   let impl :=
            lam (lambdaArg {a = Name} "x") $
            lam (lambdaArg {a = Name} "y") $
-           iCase `(MkPair x y) implicitFalse (eqClauses [ti.name] "MkPair" ti)
+           iCase [] `(MkPair x y) implicitFalse (eqClauses [ti.name] "MkPair" ti)
 
   logMsg "derive.definitions" 1 $ show impl
   check $ var "mkEq" `app` impl

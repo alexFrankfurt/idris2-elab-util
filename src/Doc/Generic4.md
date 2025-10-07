@@ -110,9 +110,8 @@ Generic' p =
 
       x        := lambdaArg {a = Name} "x"
       varX     := var "x"
-      from     := lam x $ iCase varX implicitFalse (map fromClause names)
-      to       := lam x $ iCase varX implicitFalse (toClauses names)
-      impl     := appAll "MkGeneric" [from,to]
+from     := lam x $ iCase [] varX implicitFalse (map fromClause names)
+to       := lam x $ iCase [] varX implicitFalse (toClauses names)
 
    in TL (interfaceHint Public function funType)
          (def function [patClause (var function) impl])

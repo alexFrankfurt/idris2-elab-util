@@ -453,10 +453,10 @@ withClause = WithClause EmptyFC
 
 ||| A case expression.
 |||
-||| This is an alias for `ICase EmptyFC []`.
+||| This is an alias for `ICase EmptyFC`.
 public export %inline
-iCase : (sc : TTImp) -> (ty : TTImp) -> (clauses : List Clause) -> TTImp
-iCase = ICase EmptyFC []
+iCase : (opts : List FnOpt) -> (sc : TTImp) -> (ty : TTImp) -> (clauses : List Clause) -> TTImp
+iCase = ICase EmptyFC
 
 ||| "as"-pattern.
 |||
@@ -579,7 +579,7 @@ iData :
   -> (cons  : List ITy)
   -> Decl
 iData v n tycon opts cons =
-  IData EmptyFC (specified v) Nothing (MkData EmptyFC n (Just tycon) opts cons)
+  IData EmptyFC (SpecifiedValue v) Nothing (MkData EmptyFC n (Just tycon) opts cons)
 
 ||| Simple data declaration of type `Type` (no options, no parameters,
 ||| no indices).
